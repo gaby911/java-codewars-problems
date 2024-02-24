@@ -162,4 +162,39 @@ public class Kata {
         return Integer.toString(num);
     }
 
+    /*
+    DESCRIPTION:
+        It's pretty straightforward. Your goal is to create a function that removes the first and last characters
+         of a string. You're given one parameter, the original string.
+         You don't have to worry about strings with less than two characters.
+     */
+
+    public static String remove(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.deleteCharAt(str.length() - 1);
+        sb.deleteCharAt(0);
+        return sb.toString();
+    }
+
+    public static String removeV2(String str) {
+        String res = "";
+        for (int i = 1; i < str.length() - 1; i++) {
+            res += str.charAt(i);
+        }
+        return res;
+    }
+
+    public static String removeV3(String str) {
+        return str.substring(1, str.length() - 1);
+    }
+
+    public static String removeV4(String str) {
+        return str.replaceAll("^.|.$", "");
+    }
+
+    public static String removeV5(String str) {
+        return new StringBuffer(str).deleteCharAt(str.length() - 1).deleteCharAt(0).toString();
+    }
+
+
 }
