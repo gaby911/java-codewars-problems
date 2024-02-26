@@ -453,5 +453,19 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         return newNumber;
     }
 
+    /*Determine if a number is palindrome */
+
+    public static Boolean isPalindrome(int n) {
+        int remainder = 0;
+        int sum = 0;
+        int temp = n;
+        while (n > 0) {
+            remainder = n % 10;
+            sum = (sum * 10) + remainder;
+            n = n / 10;
+        }
+        if (temp == sum) return true;
+        else return false;
+    }
 
 }
