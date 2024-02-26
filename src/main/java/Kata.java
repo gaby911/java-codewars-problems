@@ -409,7 +409,23 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         return input == null || input.length == 0 ? new int[0] :
                 new int[]{(int) Arrays.stream(input).filter(i -> i > 0).count(),
                         (int) Arrays.stream(input).filter(i -> i < 0).sum()
-                                                               };
+                };
     }
 
+    /*
+    DESCRIPTION:
+        Nathan loves cycling.
+        Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+        You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+        For example:
+        time = 3 ----> litres = 1
+        time = 6.7---> litres = 3
+        time = 11.8--> litres = 5
+        */
+    public int Liters(double time) {
+
+        return (int) Math.floor(time * 0.5);
+
+    }
 }
