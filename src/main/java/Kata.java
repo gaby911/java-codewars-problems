@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Kata {
     /*
     Very simple, given a number (integer / decimal / both depending on the language),
@@ -340,4 +343,43 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         }
         return sum;
     }
+
+    /*
+    DESCRIPTION:
+        Can you find the needle in the haystack?
+        Write a function findNeedle() that takes an array full of junk but containing one "needle"
+        After your function finds the needle it should return a message (as a string) that says:
+        "found the needle at position " plus the index it found the needle, so:
+
+        Example(Input --> Output)
+
+        ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
+        Note: In COBOL, it should return "found the needle at position 6"
+        */
+
+    public static String findNeedle(Object[] haystack) {
+        int position = 0;
+        for (int i = 0; i < haystack.length; i++) {
+            if (haystack[i].equals("needle")) position = i;
+        }
+        return "found the needle at position " + position;
+    }
+
+    public static String findNeedleV2(Object[] haystack) {
+        return String.format("found the needle at position %d", java.util.Arrays.asList(haystack).indexOf("needle"));
+    }
+
+    public static String findNeedleV3(Object[] haystack) {
+        return "found the needle at position " + Arrays.asList(haystack).indexOf("needle");
+    }
+
+    public static String findNeedleV4(Object[] haystack) {
+        for (int i = 0; i < haystack.length; i++) {
+            if ("needle".equals(haystack[i])) {
+                return "found the needle at position " + i;
+            }
+        }
+        throw new IllegalArgumentException("There was no needle in the haystack");
+    }
+
 }
