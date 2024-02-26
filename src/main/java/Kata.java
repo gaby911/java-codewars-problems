@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Kata {
@@ -424,8 +423,35 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         time = 11.8--> litres = 5
         */
     public int Liters(double time) {
-
         return (int) Math.floor(time * 0.5);
-
     }
+
+    /*
+    DESCRIPTION:
+        Convert number to reversed array of digits
+        Given a random non-negative number, you have to return the digits of this number within an array
+         in reverse order.
+
+        Example(Input => Output):
+        35231 => [1,3,2,5,3]
+        0 => [0]
+        */
+
+    public static int[] digitize(long n) {
+        int length = String.valueOf(n).length();
+        int[] newNumber = new int[length];
+        if (n == 0)
+            return new int[]{0};
+        else if (n > 0) {
+            for (int i = 0; i < length; i++) {
+                int lastDigit = (int) (n % 10);
+                newNumber[i] = lastDigit;
+                n = n / 10;
+            }
+        }
+
+        return newNumber;
+    }
+
+
 }
