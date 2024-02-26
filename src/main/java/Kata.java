@@ -382,4 +382,34 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         throw new IllegalArgumentException("There was no needle in the haystack");
     }
 
+    /*
+    DESCRIPTION:
+        Given an array of integers.
+        Return an array, where the first element is the count of positives numbers and the second element is sum
+         of negative numbers.0 is neither positive nor negative.
+        If the input is an empty array or is null, return an empty array.
+
+        Example
+        For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+        */
+
+    public static int[] countPositivesSumNegatives(int[] input) {
+        int counterOfPositiveNumbers = 0;
+        int sumOfNegativeNumbers = 0;
+        for (int i : input) {
+            if (i > 0) counterOfPositiveNumbers++;
+            else {
+                sumOfNegativeNumbers += i;
+            }
+        }
+        return new int[]{counterOfPositiveNumbers, sumOfNegativeNumbers};
+    }
+
+    public static int[] countPositivesSumNegativesV2(int[] input) {
+        return input == null || input.length == 0 ? new int[0] :
+                new int[]{(int) Arrays.stream(input).filter(i -> i > 0).count(),
+                        (int) Arrays.stream(input).filter(i -> i < 0).sum()
+                                                               };
+    }
+
 }
