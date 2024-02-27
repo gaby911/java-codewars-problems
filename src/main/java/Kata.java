@@ -468,4 +468,28 @@ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9
         else return false;
     }
 
+    /*Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+        For example, if we run 9119 through the function, 811181 will come out, because 9^2 is 81 and 1^2 is 1. (81-1-1-81)
+        Example #2: An input of 765 will/should return 493625 because 7^2 is 49, 6^2 is 36, and 5^2 is 25. (49-36-25)
+        Note: The function accepts an integer and returns an integer.
+        Happy Coding!
+*/
+    public int squareDigits(int n) {
+        // Convert the integer to a string to process each digit individually
+        String numberString = Integer.toString(n);
+        StringBuilder resultBuilder = new StringBuilder();
+
+        // Iterate through each digit of the number
+        for (int i = 0; i < numberString.length(); i++) {
+            // Get the current digit
+            int digit = Character.getNumericValue(numberString.charAt(i));
+            // Square the digit
+            int squaredDigit = digit * digit;
+            // Append the squared digit to the result string
+            resultBuilder.append(squaredDigit);
+        }
+
+        // Convert the result string to an integer and return
+        return Integer.parseInt(resultBuilder.toString());
+    }
 }
